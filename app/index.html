@@ -36,93 +36,98 @@
       <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
 
-    <nav class="top-bar" data-topbar>
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="#">Words With Self</a></h1>
-        </li>
-      </ul>
 
-      <section class="top-bar-section" ng-controller="UserCtrl">
-        <!-- Right Nav Section -->
-        <ul class="right">
-          <li ng-hide="userSignedIn()">
-            <a href="#" data-reveal-id="sign-up-modal">Sign Up</a>
-          </li>
-          <li ng-hide="userSignedIn()">
-            <a href="#" data-reveal-id="sign-in-modal">Sign In</a>
-          </li>
-
-          <li class="has-dropdown" ng-show="userSignedIn()" ng-cloak>
-            <a href="#">{{currentUser.get('username')}}</a>
-            <ul class="dropdown">
-              <li>
-                <a href="#" ng-show="userSignedIn()" ng-click="signOut()" ng-cloak>Sign Out</a>
-              </li>
-            </ul>
+    <div id="root">
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#">Words With Self</a></h1>
           </li>
         </ul>
 
-        <div class="reveal-modal" id="sign-in-modal" data-reveal>
-          <div class="row columns large-12 text-center">
-            <h2>Sign In</h2>
+        <section class="top-bar-section" ng-controller="UserCtrl">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li ng-hide="userSignedIn()">
+              <a href="#" data-reveal-id="sign-up-modal">Sign Up</a>
+            </li>
+            <li ng-hide="userSignedIn()">
+              <a href="#" data-reveal-id="sign-in-modal">Sign In</a>
+            </li>
+
+            <li class="has-dropdown" ng-show="userSignedIn()" ng-cloak>
+              <a href="#">{{currentUser.get('username')}}</a>
+              <ul class="dropdown">
+                <li>
+                  <a href="#" ng-show="userSignedIn()" ng-click="signOut()" ng-cloak>Sign Out</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="reveal-modal" id="sign-in-modal" data-reveal>
+            <div class="row columns large-12 text-center">
+              <h2>Sign In</h2>
+            </div>
+            <form name="sign-in">
+              <div class="row">
+                <div class="columns large-12">
+                  <label for="email">Username</label>
+                  <input type="text" id="email" name="email" ng-model="username" auto-fill-sync></input>
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" ng-model="password" auto-fill-sync></input>
+                </div>
+              </div>
+              <div class="row">
+                <div class="columns large-6">
+                  <a href="#" data-reveal-id="sign-up-modal" class="button expand secondary">Sign Up</a>
+                </div>
+                <div class="columns large-6">
+                  <input type="submit" value="Sign In" class="button expand" ng-click="signIn()"></input>
+                </div>
+              </div>
+            </form>
           </div>
-          <form name="sign-in">
-            <div class="row">
-              <div class="columns large-12">
-                <label for="email">Username</label>
-                <input type="text" id="email" name="email" ng-model="username" auto-fill-sync></input>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" ng-model="password" auto-fill-sync></input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="columns large-6">
-                <a href="#" data-reveal-id="sign-up-modal" class="button expand secondary">Sign Up</a>
-              </div>
-              <div class="columns large-6">
-                <input type="submit" value="Sign In" class="button expand" ng-click="signIn()"></input>
-              </div>
-            </div>
-          </form>
-        </div>
 
-        <div class="reveal-modal" id="sign-up-modal" data-reveal>
-          <div class="row">
-            <div class="columns large-12 text-center">
-              <h2>Sign Up</h2>
+          <div class="reveal-modal" id="sign-up-modal" data-reveal>
+            <div class="row">
+              <div class="columns large-12 text-center">
+                <h2>Sign Up</h2>
+              </div>
             </div>
+            <form name="sign-up">
+              <div class="row">
+                <div class="columns large-12">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" name="email" ng-model="username" auto-fill-sync></input>
+                  <label for="password">Password</label>
+                  <input type="password" id="password" name="password" ng-model="password" auto-fill-sync></input>
+                </div>
+              </div>
+              <div class="row">
+                <div class="columns large-6">
+                  <a href="#" data-reveal-id="sign-in-modal" class="button expand secondary">Sign In</a>
+                </div>
+                <div class="columns large-6">
+                  <input type="submit" value="Sign Up" class="button expand" ng-click="signUp()"></input>
+                </div>
+              </div>
+            </form>
           </div>
-          <form name="sign-up">
-            <div class="row">
-              <div class="columns large-12">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" ng-model="username" auto-fill-sync></input>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" ng-model="password" auto-fill-sync></input>
-              </div>
-            </div>
-            <div class="row">
-              <div class="columns large-6">
-                <a href="#" data-reveal-id="sign-in-modal" class="button expand secondary">Sign In</a>
-              </div>
-              <div class="columns large-6">
-                <input type="submit" value="Sign Up" class="button expand" ng-click="signUp()"></input>
-              </div>
-            </div>
-          </form>
-        </div>
 
-      </section>
-    </nav>
+        </section>
+      </nav>
 
-    <!-- Add your site or application content here -->
-    <div ng-view></div>
+      <!-- Add your site or application content here -->
+      <div ng-view></div>
 
-    <nav class="bottom-bar">
+      <div id="root_footer"></div>
+    </div>
+
+    <nav class="bottom-bar" id="footer">
       <section class="bottom-bar-section">
         <ul class="right">
-        	<li>
+          <li>
             <a href="http://www.dictionaryapi.com/" alt="Merriam-Webster API"><img src="images/mw-logo-light-background-50x50.png" alt="Merriam-Webster API"></a>
           </li>
         </ul>
@@ -182,7 +187,9 @@
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/words.js"></script>
         <script src="scripts/controllers/user.js"></script>
+        <script src="scripts/controllers/definitions.js"></script>
         <script src="scripts/directives/auto_fill_sync.js"></script>
+        <script src="scripts/directives/mw_entry.js"></script>
         <!-- endbuild -->
 
         <script src="http://www.parsecdn.com/js/parse-1.2.13.min.js"></script>

@@ -1,3 +1,19 @@
+@mixin sticky-footer($footer-height, $root-selector: unquote("#root"), $root-footer-selector: unquote("#root_footer"), $footer-selector: unquote("#footer")) {
+  html, body {
+    height: 100%; }
+  #{$root-selector} {
+    clear: both;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin-bottom: -$footer-height;
+    #{$root-footer-selector} {
+      height: $footer-height; } }
+  #{$footer-selector} {
+    clear: both;
+    position: relative;
+    height: $footer-height; } }
+
 @import "foundation.scss";
 
 @media #{$medium-up} {
@@ -90,3 +106,30 @@ $bottom-bar-bg-color: #303232;
   }
 }
 
+.definition-list {
+  padding: 0 20px;
+  border: none;
+}
+.definition-list > ol {
+  list-style-type: none;
+  margin-left: 0;
+
+  > li > h4 {
+    margin-left: -20px;
+    margin-right: -20px;
+    padding: 10px 20px;
+    background-color: $primary-color;
+    color: #fff;
+    
+    > small > em {
+      margin-left: 1rem;
+      color: #bbb;
+    }
+  }
+
+  > li:not(:first-child) {
+    margin-top: 2rem;
+  }
+}
+
+@include sticky-footer(80px);

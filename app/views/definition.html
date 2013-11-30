@@ -1,0 +1,13 @@
+<h4><sup>{{definition.hindex}}</sup>{{definition.hw}}<small><em>{{definition.fl}}</em></small></h4>
+<span>{{definition.root.text}} </span>
+<ol type="1">
+  <li ng-repeat="c1 in definition.root.children">
+    <span>{{c1.text}} </span>
+    <ol type="a">
+      <li ng-repeat="c2 in c1.children">
+        <span>{{c2.text}} </span>
+        <span ng-repeat="c3 in c2.children">{{c3.label}} {{c3.text}} </span>
+      </li>
+    </ol>
+  </li>
+</ol>

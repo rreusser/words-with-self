@@ -7,27 +7,34 @@
   </div>
 </div>
 
-<div class="row hero">
-  <div class="medium-8 medium-offset-2 columns">
-    <form ng-submit="lookUp()" ng-controller="WordsCtrl">
-      <div class="row collapse">
-        <div class="small-9 columns">
-          <input type="text" placeholder="word" ng-model="term">
-        </div>
-        <div class="small-3 columns">
-          <a href="#" class="button postfix" ng-click="lookUp()">Look up</a>
-        </div>
-      </div>   
-    </form>
+<div ng-controller="WordsCtrl">
+  <div class="row hero">
+    <div class="medium-8 medium-offset-2 columns">
+      <form ng-submit="lookUp()">
+        <div class="row collapse">
+          <div class="small-9 columns">
+            <input type="text" placeholder="word" ng-model="term">
+          </div>
+          <div class="small-3 columns">
+            <a href="#" class="button postfix" ng-click="lookUp()">Look up</a>
+          </div>
+        </div>   
+      </form>
+    </div>
   </div>
-</div>
 
-<div class="row hero">
-  <div class="medium-8 medium-offset-2 columns">
-    <div class="panel">
-      Definition!
+  <div class="row hero">
+    <div class="medium-8 medium-offset-2 columns">
+      <div class="panel definition-list">
+        <ol>
+          <li ng-repeat="def in definitions" mw-entry definition="def">
+          </li>
+        </ol>
+      </div>
     </div>
   </div>
 </div>
+
+
 
 
