@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title></title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css({.tmp,app}) styles/main.css -->
@@ -66,6 +66,7 @@
           </ul>
 
           <div class="reveal-modal" id="sign-in-modal" data-reveal>
+            <a class="close-reveal-modal">&#215;</a>
             <div class="row columns large-12 text-center">
               <h2>Sign In</h2>
             </div>
@@ -73,23 +74,24 @@
               <div class="row">
                 <div class="columns large-12">
                   <label for="email">Username</label>
-                  <input type="text" id="email" name="email" ng-model="username" auto-fill-sync></input>
+                  <input type="email" id="email" name="email" ng-model="username" auto-fill-sync autocapitalize="off" autocorrect="off"></input>
                   <label for="password">Password</label>
                   <input type="password" id="password" name="password" ng-model="password" auto-fill-sync></input>
                 </div>
               </div>
               <div class="row">
-                <div class="columns large-6">
-                  <a href="#" data-reveal-id="sign-up-modal" class="button expand secondary">Sign Up</a>
-                </div>
-                <div class="columns large-6">
+                <div class="columns large-6 large-push-6">
                   <input type="submit" value="Sign In" class="button expand" ng-click="signIn()"></input>
+                </div>
+                <div class="columns large-6 large-pull-6">
+                  <a href="#" data-reveal-id="sign-up-modal" class="button expand secondary">Sign Up</a>
                 </div>
               </div>
             </form>
           </div>
 
           <div class="reveal-modal" id="sign-up-modal" data-reveal>
+            <a class="close-reveal-modal">&#215;</a>
             <div class="row">
               <div class="columns large-12 text-center">
                 <h2>Sign Up</h2>
@@ -99,17 +101,17 @@
               <div class="row">
                 <div class="columns large-12">
                   <label for="email">Email</label>
-                  <input type="email" id="email" name="email" ng-model="username" auto-fill-sync></input>
+                  <input type="email" id="email" name="email" ng-model="username" auto-fill-sync autocapitalize="off" autocorrect="off"></input>
                   <label for="password">Password</label>
                   <input type="password" id="password" name="password" ng-model="password" auto-fill-sync></input>
                 </div>
               </div>
               <div class="row">
-                <div class="columns large-6">
-                  <a href="#" data-reveal-id="sign-in-modal" class="button expand secondary">Sign In</a>
-                </div>
-                <div class="columns large-6">
+                <div class="columns large-6 large-push-6">
                   <input type="submit" value="Sign Up" class="button expand" ng-click="signUp()"></input>
+                </div>
+                <div class="columns large-6 large-pull-6">
+                  <a href="#" data-reveal-id="sign-in-modal" class="button expand secondary">Sign In</a>
                 </div>
               </div>
             </form>

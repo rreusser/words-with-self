@@ -30,9 +30,8 @@
       success: (user) ->
         $rootScope.currentUser = Parse.User.current()
         $('#sign-in-modal').foundation('reveal','close')
-        $scope.$apply()
       , error: (user, error) ->
-        console.log( 'oops:',user, error )
+        alert( error )
     })
 
 ])

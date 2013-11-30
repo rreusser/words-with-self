@@ -16,6 +16,8 @@
 
 @import "foundation.scss";
 
+body { overflow-x: hidden; }
+
 @media #{$medium-up} {
   .reveal-modal {
     width: 500px;
@@ -97,7 +99,7 @@
 .top-bar {
   box-shadow: 0 0 10px #000;
   position: relative;
-  z-index: 100;
+  z-index: 98;
 }
 
 $bottom-bar-height: 80px;
