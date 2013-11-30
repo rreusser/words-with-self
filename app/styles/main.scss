@@ -43,7 +43,7 @@ body { overflow-x: hidden; }
   left: 0;
   
   &#books {
-    background-image: url('/images/book.jpg');
+    background-image: url('https://whim-resizer.s3.amazonaws.com/e9a879c3fae9da8bdabf7fc282bd1ffc/3117079e.book.jpg');
   }
 }
 
@@ -151,8 +151,12 @@ $bottom-bar-bg-color: #303232;
 .word-list {
   width: 100%;
   td {
-    cursor: pointer;
+    //cursor: pointer;
   }
+}
+
+.delete-link {
+  font-size: rem-calc(24);
 }
 
 @include sticky-footer(80px);

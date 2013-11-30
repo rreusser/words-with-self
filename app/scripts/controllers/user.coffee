@@ -7,6 +7,7 @@
 
   $scope.signOut = ->
     Parse.User.logOut()
+    $rootScope.wordList = []
     $rootScope.currentUser = undefined
 
   $scope.signUp = ->
@@ -30,6 +31,7 @@
       success: (user) ->
         $rootScope.currentUser = Parse.User.current()
         $('#sign-in-modal').foundation('reveal','close')
+        $scope.fetchWordList()
       , error: (user, error) ->
         alert( error )
     })

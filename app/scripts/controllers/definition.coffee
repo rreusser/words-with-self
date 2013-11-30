@@ -12,6 +12,9 @@
   $scope.term = "test"
   $scope.definitions = []
 
+  $scope.isStored = true
+
+
   unpack = (data) ->
     defs = []
     window.xml = xml = $(data)
@@ -82,10 +85,21 @@
     #console.log defs
     defs
 
+
+  $scope.checkIfStored = ->
+    query = new Parse.Query(Word)
+    query.equalTo('term', $scope.term)
+    query.find({
+      success: (results) ->
+        $scope.isStored = results.length > 0
+    })
+
     
   $scope.lookUp = ->
 
     $scope.term = $routeParams.term
+
+    $scope.checkIfStored()
 
     $http({
       method: 'JSONP',
@@ -111,7 +125,8 @@
     w.setACL(new Parse.ACL(Parse.User.current()))
     w.save(null,{
       success: ((data) ->
-        #console.log('stored!')
+        $scope.isStored = true
+        $scope.$digest() unless $scope.$$phase
       )
     })
 

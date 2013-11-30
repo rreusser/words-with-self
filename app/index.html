@@ -34,7 +34,7 @@
     <![endif]-->
 
 
-    <div id="root">
+    <div id="root" ng-controller="MainCtrl">
       <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <li class="name">
@@ -49,17 +49,17 @@
           <!-- Right Nav Section -->
           <ul class="right">
             <li ng-hide="userSignedIn()">
-              <a href="#" data-reveal-id="sign-up-modal">Sign Up</a>
+              <a href="javascript:void(0);" data-reveal-id="sign-up-modal">Sign Up</a>
             </li>
             <li ng-hide="userSignedIn()">
-              <a href="#" data-reveal-id="sign-in-modal">Sign In</a>
+              <a href="javascript:void(0);" data-reveal-id="sign-in-modal">Sign In</a>
             </li>
 
             <li class="has-dropdown" ng-show="userSignedIn()" ng-cloak>
-              <a href="#">{{currentUser.get('username')}}</a>
+              <a href="javascript:void(0);">{{currentUser.get('username')}}</a>
               <ul class="dropdown">
                 <li>
-                  <a href="#" ng-show="userSignedIn()" ng-click="signOut()" ng-cloak>Sign Out</a>
+                  <a href="javascript:void(0);" ng-show="userSignedIn()" ng-click="signOut()" ng-cloak>Sign Out</a>
                 </li>
               </ul>
             </li>
@@ -84,7 +84,7 @@
                   <input type="submit" value="Sign In" class="button expand" ng-click="signIn()"></input>
                 </div>
                 <div class="columns large-6 large-pull-6">
-                  <a href="#" data-reveal-id="sign-up-modal" class="button expand secondary">Sign Up</a>
+                  <a href="javascript:void(0);" data-reveal-id="sign-up-modal" class="button expand secondary">Sign Up</a>
                 </div>
               </div>
             </form>
@@ -111,7 +111,7 @@
                   <input type="submit" value="Sign Up" class="button expand" ng-click="signUp()"></input>
                 </div>
                 <div class="columns large-6 large-pull-6">
-                  <a href="#" data-reveal-id="sign-in-modal" class="button expand secondary">Sign In</a>
+                  <a href="javascript:void(0);" data-reveal-id="sign-in-modal" class="button expand secondary">Sign In</a>
                 </div>
               </div>
             </form>

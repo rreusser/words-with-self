@@ -16,7 +16,7 @@
   </div>
 </div>
 
-<div class="row hero">
+<div class="row hero" ng-cloak ng-show="!isStored">
 	<div class="medium-8 medium-offset-2 columns">
     <a class="button expand" href="javascript:void(0)" ng-click="store()">+ Add {{term}} to word list</a>
   </div>
