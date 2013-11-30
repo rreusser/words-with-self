@@ -19,7 +19,6 @@
         term: data.get('term')
         #term: data.term
       })
-    $scope.$apply()
 
   $scope.define = (term) ->
     $location.url('/define/'+term)
