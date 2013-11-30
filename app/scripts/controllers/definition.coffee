@@ -127,6 +127,7 @@
       success: ((data) ->
         $scope.isStored = true
         $scope.$digest() unless $scope.$$phase
+        $scope.fetchWordList()
       )
     })
 
