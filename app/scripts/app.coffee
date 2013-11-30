@@ -11,6 +11,9 @@
       .when '/',
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
+      .when '/define/:term',
+        templateUrl: 'views/define.html'
+        controller: 'DefinitionCtrl'
       .otherwise
         redirectTo: '/'
   ]).run(['$rootScope', ($rootScope) ->

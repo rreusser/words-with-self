@@ -10,13 +10,13 @@
 <div ng-controller="WordsCtrl">
   <div class="row hero">
     <div class="medium-8 medium-offset-2 columns">
-      <form ng-submit="lookUp()">
+      <form ng-submit="submit()">
         <div class="row collapse">
           <div class="small-9 columns">
             <input type="text" placeholder="word" ng-model="term">
           </div>
           <div class="small-3 columns">
-            <a href="#" class="button postfix" ng-click="lookUp()">Look up</a>
+            <a href="javascript:void(0);" class="button postfix" ng-click="submit()">Look up</a>
           </div>
         </div>   
       </form>
@@ -24,17 +24,14 @@
   </div>
 
   <div class="row hero">
-    <div class="medium-8 medium-offset-2 columns">
-      <div class="panel definition-list">
-        <ol>
-          <li ng-repeat="def in definitions" mw-entry definition="def">
-          </li>
-        </ol>
-      </div>
+    <div class="medium-8 medium-offset-2 columns full-width-mobile">
+      <table class="word-list">
+        <tbody>
+          <tr ng-repeat="word in wordList">
+            <td ng-click="define(word.term)"><a href="#/define/{{word.term}}">{{word.term}}</a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
-
-
-
-
