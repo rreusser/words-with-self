@@ -9,6 +9,7 @@
     Parse.User.logOut()
     $rootScope.wordList = []
     $rootScope.currentUser = undefined
+    $('nav.top-bar').removeClass('expanded').css('height','')
 
   $scope.signUp = ->
 
@@ -20,6 +21,7 @@
       success: (user) ->
         $rootScope.currentUser = Parse.User.current()
         $('#sign-up-modal').foundation('reveal','close')
+        $('nav.top-bar').removeClass('expanded').css('height','')
         $scope.$apply()
       , error: (user,error) ->
         console.log( 'oops: ',error)
@@ -31,6 +33,7 @@
       success: (user) ->
         $rootScope.currentUser = Parse.User.current()
         $('#sign-in-modal').foundation('reveal','close')
+        $('nav.top-bar').removeClass('expanded')
         $scope.fetchWordList()
       , error: (user, error) ->
         alert( error )

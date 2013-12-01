@@ -1,7 +1,7 @@
 <div class="bg" id="books">
 </div>
 
-<div class="row hero">
+<div class="row hero" ng-hide="userSignedIn()">
   <div class="medium-8 medium-offset-2 columns text-center">
     <h1>Words With Self</h1>
   </div>
@@ -29,7 +29,7 @@
         <tbody>
           <tr ng-repeat="word in $root.wordList">
             <td> <!-- ng-click="define(word.get('term'))" -->
-              <a href="#/define/{{word.get('term')}}">{{word.get('term')}}</a>
+              <a href="#/define/{{word.get('term')}}" class="word">{{word.get('term')}}</a>
               <a href="javascript:void(0);" ng-click="delete(word)" class="delete-link right">&times;</a>
             </td>
           </tr>

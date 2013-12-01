@@ -152,11 +152,32 @@ $bottom-bar-bg-color: #303232;
   width: 100%;
   td {
     //cursor: pointer;
+    padding: 0 40px 0 0;
+    position: relative;
+    a.word {
+      padding: .5625rem .625rem;
+      display: inline-block;
+      width: 100%;
+    }
+    a.delete-link {
+      position:absolute;
+      display: inline-block;
+      width: 35px;
+      height: 35px;
+      top: 0;
+      right: 0;
+      line-height: 35px;
+      text-align: center;
+    }
   }
 }
 
 .delete-link {
   font-size: rem-calc(24);
+}
+
+button, .button {
+  border-radius: 0;
 }
 
 @include sticky-footer(80px);
