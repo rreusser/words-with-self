@@ -14,6 +14,7 @@
 
   $scope.isStored = true
 
+  $scope.loading = true
 
   unpack = (data) ->
     defs = []
@@ -92,6 +93,7 @@
     query.find({
       success: (results) ->
         $scope.isStored = results.length > 0
+        $scope.$digest() unless $scope.$$phase
     })
 
     
@@ -106,11 +108,15 @@
       url: definitionEndpoint($scope)
 
     }).success((data,status) ->
+      $scope.loading = false
       $scope.definitions = unpack(data['xml'])
+      $scope.$digest() unless $scope.$$phase
 
     ).error((data,status) ->
       console.log(data,status)
       $scope.definition = undefined
+      $scope.loading = false
+      $scope.$digest() unless $scope.$$phase
     )
 
   $scope.lookUp()

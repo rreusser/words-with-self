@@ -24,7 +24,8 @@
 
 <div class="row hero">
   <div class="medium-8 medium-offset-2 columns full-width-mobile">
-    <div class="panel definition-list">
+    <div class="panel definition-list" ng-class="{true:'loading',false:''}[loading]">
+      <div class="text-center spinner"><img src="images/spinner.gif"></div>
       <ol>
         <li ng-repeat="def in definitions" mw-entry definition="def">
         </li>

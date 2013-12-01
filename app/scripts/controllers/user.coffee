@@ -1,6 +1,6 @@
 'use strict'
 
-@app.controller('UserCtrl', ['$rootScope','$scope', ($rootScope,$scope) ->
+@app.controller('UserCtrl', ['$location', '$rootScope','$scope', ($location, $rootScope,$scope) ->
 
   $rootScope.userSignedIn = ->
     $rootScope.currentUser != undefined and $rootScope.currentUser != null
@@ -10,6 +10,7 @@
     $rootScope.wordList = []
     $rootScope.currentUser = undefined
     $('nav.top-bar').removeClass('expanded').css('height','')
+    $location.url('/')
 
   $scope.signUp = ->
 
